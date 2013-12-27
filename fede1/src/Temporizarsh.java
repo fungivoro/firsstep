@@ -8,27 +8,31 @@ import java.util.TimerTask;
 
 
 public class Temporizarsh extends Timer {
+	
+	int counter;
 
-	public Temporizarsh(int segundos, JButton btn){
-		Escusha escuc = new Escusha(btn, segundos);
-		
-		this.scheduleAtFixedRate(new TimerTask() {	
+	public Temporizarsh(int milisegundos, final JButton btn){
+		counter = milisegundos/1000;
+		this.schedule(new TimerTask() {	
 			@Override
 			public void run() {
+				if(counter == 0){
+					this.cancel();this.finalize();
+				}
+				
 				// TODO Auto-generated method stub
-				System.out.print("dsdsd");
+				btn.setText(String.valueOf(counter));
+				counter--;
 				
 			}
-		}, segundos, 1000);
+			
+		}, 1000, 1000);
 		
-//		addActionListener(escuc);
-//		this.start();
+		
 		
 		try {
 			this.finalize();
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			
 			e.printStackTrace();
 		}
 		

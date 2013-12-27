@@ -53,41 +53,16 @@ public class Gool {
 		});
 
 				final JButton btnIgnite = new JButton("ignite");
-				btnIgnite.addMouseListener(new MouseListener() {
-
+				btnIgnite.addActionListener(new ActionListener() {
+					
 					@Override
-					public void mouseClicked(MouseEvent e) {
+					public void actionPerformed(ActionEvent arg0) {
 						// TODO Auto-generated method stub
-						
+						// TODO Auto-generated method stub
 						btnIgnite.setEnabled(false);
 						System.out.print(btnIgnite.isEnabled());
-						new Temporizarsh(300000, btnIgnite);
+						new Temporizarsh(3000, btnIgnite);
 					}
-
-					@Override
-					public void mouseEntered(MouseEvent e) {
-						// TODO Auto-generated method stub
-
-					}
-
-					@Override
-					public void mouseExited(MouseEvent e) {
-						// TODO Auto-generated method stub
-
-					}
-
-					@Override
-					public void mousePressed(MouseEvent e) {
-						// TODO Auto-generated method stub
-
-					}
-
-					@Override
-					public void mouseReleased(MouseEvent e) {
-						// TODO Auto-generated method stub
-
-					}
-
 				});
 
 		JFrame frm = new JFrame("LoL");
