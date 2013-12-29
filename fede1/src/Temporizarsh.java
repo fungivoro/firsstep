@@ -10,14 +10,26 @@ import java.util.TimerTask;
 public class Temporizarsh extends Timer {
 	
 	int counter;
-
+	String nombreOriginal;
+	
 	public Temporizarsh(int milisegundos, final JButton btn){
 		counter = milisegundos/1000;
+		nombreOriginal = btn.getText();
 		this.schedule(new TimerTask() {	
 			@Override
 			public void run() {
 				if(counter == 0){
-					this.cancel();this.finalize();
+					this.cancel();
+					try {
+						this.finalize();
+					} catch (Throwable e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					btn.setEnabled(true);
+					btn.setText(nombreOriginal);
+					return;
+					
 				}
 				
 				// TODO Auto-generated method stub
@@ -26,7 +38,7 @@ public class Temporizarsh extends Timer {
 				
 			}
 			
-		}, 1000, 1000);
+		}, 0, 1000);
 		
 		
 		
